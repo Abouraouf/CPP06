@@ -12,3 +12,14 @@ class ScalarConverter
 		const ScalarConverter& operator=(const ScalarConverter& other);
 		~ScalarConverter();
 };
+
+enum type
+{
+	ERROR = -1,
+	SPEC,
+	CHAR,
+	INT,
+	DOUBLE,
+	FLAOT
+};
+

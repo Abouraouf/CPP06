@@ -24,8 +24,8 @@ ScalarConverter::~ScalarConverter(){}
 
 void ScalarConverter::convert(const char* str)
 {
-	std::cout << static_cast<char>(*str) << std::endl;
-	std::cout << static_cast<int>(std::atoi(str)) << std::endl;
-	std::cout << static_cast<double>(std::atof(str)) << std::endl;
-	std::cout << static_cast<float>(std::atof(str)) << std::endl;
+	// std::cout << static_cast<char>(*str)<< std::endl;
+	// std::cout << static_cast<int>(std::atoi(str)) << std::endl;
+	// std::cout << static_cast<double>(std::atof(str)) << std::endl;
+	// std::cout << static_cast<float>(std::atof(str)) << std::endl;
 }
