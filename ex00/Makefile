@@ -1,5 +1,5 @@
 NAME =  program
-SOURCES = ScalarConverter.cpp  main.cpp
+SOURCES = ScalarConverter.cpp  main.cpp types.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SOURCES:.cpp=.o)
 HEADER = ScalarConverter.cpp

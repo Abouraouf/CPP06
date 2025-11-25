@@ -13,6 +13,10 @@ class ScalarConverter
 		~ScalarConverter();
 };
 
+int checking_int(const std::string& str);
+int check_float(const std::string& str);
+int checker(const std::string& str);
+
 enum type
 {
 	ERROR = -1,
@@ -22,4 +26,3 @@ enum type
 	DOUBLE,
 	FLAOT
 };
-
