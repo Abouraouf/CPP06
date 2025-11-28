@@ -32,6 +32,10 @@ int check_float(const std::string& str)
 	int	dot;
 	if (str.find('.') != std::string::npos)
 		dot = str.find('.');
+	else
+	{
+		return -1;
+	}
 	if (str[0] == '-' || str[0] == '+')
 	{
 		i++;
@@ -45,7 +49,6 @@ int check_float(const std::string& str)
 			return (0);
 		j--;
 	}
-
 	i = dot + 1;
 	if (!str[dot + 1])
 		return (0);
@@ -102,15 +105,13 @@ int checker(const std::string& str) // there is a segfault when number is too bi
 {
 	if (str.length() == 0)
 		return 0;
-	if (str == "nanf" || str == "-inff" || str == "+inff"
+	if (str == "nan" || str == "nanf" || str == "-inff" || str == "+inff"
 		|| str == "-inf" || str == "+inf")
 		return (SPEC);
 	if (str.length() == 1 && !isdigit(str[0]))
 		return (CHAR);
 	if (str.length() == 1 && isdigit(str[0]))
-	{
 		return (INT);
-	}
 	if (str.length() != 1 && (isdigit(str[0])
 		|| (((str[0] == '-' || str[0] == '+')) && isdigit(str[1]))))
 		{
@@ -120,9 +121,10 @@ int checker(const std::string& str) // there is a segfault when number is too bi
 	if (str.length() != 1 && (isdigit(str[0])
 		|| (((str[0] == '-' || str[0] == '+')) && isdigit(str[1]))))
 		{
-			if (check_float(str))
+			int a = check_float(str);
+			if (a && a != -1)
 				return (FLAOT);
-			if (check_double(str))
+			if (a != -1 && check_double(str))
 				return (DOUBLE);
 		}
 	return (ERROR);

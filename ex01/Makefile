@@ -1,12 +1,12 @@
 NAME =  program
-SOURCES = ScalarConverter.cpp  main.cpp types.cpp converter.cpp
+SOURCES = Serializer.cpp main.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SOURCES:.cpp=.o)
-HEADER = ScalarConverter.cpp
+HEADER = Serializer.hpp
 %.o: %.cpp $(HEADER)
 	c++ $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ)
 	c++ $(FLAGS) $(OBJ) -o $(NAME)
 
 all: $(NAME)

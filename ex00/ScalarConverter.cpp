@@ -1,15 +1,5 @@
 #include "ScalarConverter.hpp"
 
-class ScalarConverter
-{
-	public:
-		static void convert();
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		const ScalarConverter& operator=(const ScalarConverter& other);
-		~ScalarConverter();
-};
-
 ScalarConverter::ScalarConverter(){}
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
 {
