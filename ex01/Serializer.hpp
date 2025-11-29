@@ -2,20 +2,21 @@
 #include <iostream>
 #include <typeinfo>
 #include <stdint.h> 
+
 struct Data
 {
+	Data(){};
 	int n;
+	std::string name;
 };
 
-
 class Serializer{
-	public:
+	private:
 		Serializer();
 		Serializer(const Serializer& other);
 		const Serializer& operator=(const Serializer& other);
 		~Serializer();
-		
-		
+	public:
 		static uintptr_t serialize(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+		static Data* deserialize(uintptr_t raw);
 };

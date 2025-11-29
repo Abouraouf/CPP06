@@ -1,8 +1,8 @@
 NAME =  program
-SOURCES = Serializer.cpp main.cpp
+SOURCES = Base.cpp main.cpp
 FLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SOURCES:.cpp=.o)
-HEADER = Serializer.hpp Data.hpp
+HEADER = A.hpp B.hpp C.hpp
 %.o: %.cpp $(HEADER)
 	c++ $(FLAGS) -c $< -o $@
 

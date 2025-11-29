@@ -1,11 +1,9 @@
 #include "Serializer.hpp"
-
 // Serializer();
 // 		Serializer(const Serializer& other);
 // 		const Serializer& operator=(const Serializer& other);
 // 		~Serializer();
-
-		
+ 
 // 		static uintptr_t serialize(Data* ptr);
 // 		Data* deserialize(uintptr_t raw);
 Serializer::Serializer()
@@ -24,8 +22,13 @@ Serializer::Serializer(const Serializer& other)
 
 Serializer::~Serializer()
 {}
-
-uintptr_t Serializer::serialize()
+  
+uintptr_t Serializer::serialize(Data* ptr)
 {
-	
+	return (reinterpret_cast<uintptr_t> (ptr));
+}
+
+Data* Serializer::deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data *> (raw));
 }
