@@ -1,5 +1,5 @@
 #include "ScalarConverter.hpp"
-// #include <iomanip> set presision
+#include <iomanip>
 void impossible()
 {
 	std::cout << "char: impossible" << std::endl;
@@ -15,20 +15,20 @@ void print(char c)
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl; // why the ()
-	std::cout << "float: " << static_cast<float>(c) << std::fixed << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::fixed << std::endl;
+	std::cout << "float: "  << std::fixed << std::setprecision(2) << static_cast<float>(c)<<"f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << std::fixed << std::setprecision(2) << std::endl;
 }
 
 void print_else(double i)
 {
 	char c = static_cast<char>(i); // protect the overflow
-	if (isprint(c))
+	if (isprint(c) && i < 128)
 		std::cout << "char: " << "\'" << c << "\'" << std::endl;
 	else
 		std::cout << "char: " << "Non displayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(i) << std::endl; // why the ()
-	std::cout << "float: " <<std::fixed << i << "f" << std::endl;
-	std::cout << "double: " << std::fixed << i << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2)<< i << "f"<< std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(2)<< i << std::endl;
 }
 
 void	Special(const std::string& str)

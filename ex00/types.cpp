@@ -104,7 +104,7 @@ int check_double(const std::string& str)
 int checker(const std::string& str) // there is a segfault when number is too big
 {
 	if (str.length() == 0)
-		return 0;
+		return ERROR;
 	if (str == "nan" || str == "nanf" || str == "-inff" || str == "+inff"
 		|| str == "-inf" || str == "+inf")
 		return (SPEC);
