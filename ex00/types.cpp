@@ -1,9 +1,5 @@
 #include "ScalarConverter.hpp"
 
-//checking the type -> check first if it is special, check if it is char, check if it is int, double, float
-
-// converting
-
 int checking_int(const std::string& str)
 {
 	long i = 0;
@@ -29,7 +25,7 @@ int check_float(const std::string& str)
 {
 	long i = 0;
 	bool flag = false;
-	int	dot;
+	int	dot = 0;
 	if (str.find('.') != std::string::npos)
 		dot = str.find('.');
 	else
@@ -47,7 +43,6 @@ int check_float(const std::string& str)
 		if (flag == 1 && j == 0){}
 		else if (!isdigit(str[j]))
 			return (0);
-		j--;
 	}
 	i = dot + 1;
 	if (!str[dot + 1])
@@ -72,7 +67,7 @@ int check_double(const std::string& str)
 {
 	long i = 0;
 	bool flag = false;
-	int	dot;
+	int	dot = 0;
 	if (str.find('.') != std::string::npos)
 		dot = str.find('.');
 	if (str[0] == '-' || str[0] == '+') 
@@ -85,7 +80,6 @@ int check_double(const std::string& str)
 		if (flag == 1 && j == 0){}
 		else if (!isdigit(str[j]))
 			return (0);
-		j--;
 	}
 	i = dot + 1;
 	if (!str[dot + 1])
@@ -93,15 +87,13 @@ int check_double(const std::string& str)
     while (str[i])
     {
         if(!isdigit(str[i]))
-		{
         	return 0;
-		}
 		i++;
     }
     return 1;
 }
 
-int checker(const std::string& str) // there is a segfault when number is too big
+int checker(const std::string& str)
 {
 	if (str.length() == 0)
 		return ERROR;
@@ -110,10 +102,7 @@ int checker(const std::string& str) // there is a segfault when number is too bi
 		return (SPEC);
 	if (str.length() == 1 && !isdigit(str[0]))
 		return (CHAR);
-	if (str.length() == 1 && isdigit(str[0]))
-		return (INT);
-	if (str.length() != 1 && (isdigit(str[0])
-		|| (((str[0] == '-' || str[0] == '+')) && isdigit(str[1]))))
+	if ((isdigit(str[0]) || (((str[0] == '-' || str[0] == '+')) && isdigit(str[1]))))
 		{
 			if(checking_int(str))
 				return (INT);

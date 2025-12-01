@@ -7,7 +7,6 @@
 class ScalarConverter
 {
 	public:
-		// static void convert(const char* str);
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& other);
 		const ScalarConverter& operator=(const ScalarConverter& other);
